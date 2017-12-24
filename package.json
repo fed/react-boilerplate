@@ -6,6 +6,7 @@
     "flow": "flow",
     "precommit": "lint-staged",
     "test": "react-scripts test --env=jsdom",
+    "test-coverage": "npm test -- --coverage",
     "build-css":
       "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css":
