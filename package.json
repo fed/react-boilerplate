@@ -7,14 +7,14 @@
     "precommit": "lint-staged",
     "test": "react-scripts test --env=jsdom",
     "test-coverage": "npm test -- --coverage",
-    "build-css":
-      "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
-    "watch-css":
-      "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
-    "build": "npm-run-all build-css build-js"
+    "build": "npm-run-all build-css build-js",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
     "react": "^16.2.0",
@@ -27,9 +27,15 @@
     "node-sass-chokidar": "^0.0.3",
     "npm-run-all": "^4.1.2",
     "prettier": "^1.9.2",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "@storybook/react": "^3.2.19",
+    "@storybook/addon-actions": "^3.2.19",
+    "@storybook/addon-links": "^3.2.19"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": ["prettier --single-quote --write", "git add"]
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   }
 }
